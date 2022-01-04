@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/root_navigation_home">
+
+    <include app:graph="@navigation/root_navigation_home" />
+    <include app:graph="@navigation/root_navigation_search" />
+    <include app:graph="@navigation/root_navigation_more" />
+    <!--
+        <fragment
+            android:id="@+id/firstFragment"
+            android:name="com.example.android_research.fragment.FirstFragment"
+            android:label="FirstFragment"
+            tools:layout="@layout/fragment_first">
+            <action
+                android:id="@+id/action_firstFragment_to_secondFragment"
+                app:destination="@id/secondFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out" />
+            <action
+                android:id="@+id/action_firstFragment_to_thirdFragment"
+                app:destination="@id/thirdFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out" />
+        </fragment>
+        <fragment
+            android:id="@+id/secondFragment"
+            android:name="com.example.android_research.fragment.SecondFragment"
+            android:label="SecondFragment"
+            tools:layout="@layout/fragment_second">
+            <action
+                android:id="@+id/action_secondFragment_to_thirdFragment"
+                app:destination="@id/thirdFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out" />
+        </fragment>
+        <fragment
+            android:id="@+id/thirdFragment"
+            android:name="com.example.android_research.fragment.ThirdFragment"
+            android:label="ThirdFragment"
+            tools:layout="@layout/fragment_third"/>-->
+</navigation>

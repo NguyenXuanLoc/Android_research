@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation_more"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/more1Fragment">
+
+    <fragment
+        android:id="@+id/more1Fragment"
+        android:name="com.example.android_research.more.More1Fragment"
+        android:label="More1Fragment" >
+        <action
+            android:id="@+id/action_more1Fragment_to_more2Fragment"
+            app:destination="@id/more2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/more2Fragment"
+        android:name="com.example.android_research.more.More2Fragment"
+        android:label="More2Fragment" >
+        <action
+            android:id="@+id/action_more2Fragment_to_more3Fragment"
+            app:destination="@id/more3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/more3Fragment"
+        android:name="com.example.android_research.more.More3Fragment"
+        android:label="More3Fragment" />
+</navigation>
