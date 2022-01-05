@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation_link"
+    app:startDestination="@id/link1Fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/link1Fragment"
+        android:name="com.example.android_research.link.Link1Fragment"
+        android:label="Link1Fragment"
+        tools:layout="@layout/fragment_link1">
+        <argument
+            android:name="argLink"
+            android:defaultValue="Deep link Test"
+            app:argType="string" />
+        <deepLink app:uri="www.unknown.com/{}"/>
+    </fragment>
+</navigation>

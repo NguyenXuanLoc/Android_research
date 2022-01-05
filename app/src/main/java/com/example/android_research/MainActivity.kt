@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         var navGrapId = listOf(
             R.navigation.root_navigation_home,
             R.navigation.root_navigation_search,
-            R.navigation.root_navigation_more
+            R.navigation.root_navigation_more,
+            R.navigation.root_navigation_link
         )
         var controller = bottomNavigationView.setupWithNavController(
             navGrapId,
