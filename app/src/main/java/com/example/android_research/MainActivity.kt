@@ -55,8 +55,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-//        controller.popBackStack()
-//        currentNavController?.value?.popBackStack()
+    /*      controller.popBackStack()
+        currentNavController?.value?.popBackStack()
+  */
         super.onBackPressed()
     }
 }

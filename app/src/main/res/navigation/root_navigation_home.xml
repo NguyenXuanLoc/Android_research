@@ -11,10 +11,10 @@
         android:label="Home1Fragment"
         tools:layout="@layout/fragment_home1">
         <action
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
             android:id="@+id/action_home1Fragment_to_home2Fragment"
-            app:destination="@id/home2Fragment" />
+            app:destination="@id/home2Fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/home2Fragment"
@@ -25,9 +25,24 @@
             app:destination="@id/home3Fragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out" />
+        <argument
+            android:name="address"
+            android:defaultValue="100"
+            app:argType="string" />
+        <argument
+            android:name="person"
+            app:argType="com.example.android_research.model.Person" />
     </fragment>
     <fragment
         android:id="@+id/home3Fragment"
         android:name="com.example.android_research.home.Home3Fragment"
-        android:label="Home3Fragment" />
+        android:label="Home3Fragment">
+        <argument
+            android:name="address"
+            android:defaultValue="100"
+            app:argType="string" />
+        <argument
+            android:name="person"
+            app:argType="com.example.android_research.model.Person" />
+    </fragment>
 </navigation>
