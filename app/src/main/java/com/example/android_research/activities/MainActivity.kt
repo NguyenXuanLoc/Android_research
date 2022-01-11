@@ -6,40 +6,34 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_research.MyApplication
+import com.example.android_research.NoteApplication
 import com.example.android_research.R
-import com.example.android_research.di.component.DaggerAppComponent
-import com.example.android_research.model.Note
-import com.example.android_research.viewmodel.NoteViewModel
-import com.example.noteapp.adapter.NoteAdapter
+import com.example.android_research.adapter.NoteAdapter
+import com.example.noteapp.model.Note
+import com.example.noteapp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
-    private val TAG = "MainActivity"
 
-    /*    private val noteViewModel: NoteViewModel by lazy {
-            ViewModelProvider(
-                this,
-                NoteViewModel.NoteViewModelFactory(this.application)
-            )[NoteViewModel::class.java]
-        }*/
+    private val TAG = "NOTE_VIEW_MODEL"
+
     @Inject
-    lateinit var notViewModel: NoteViewModel
+    lateinit var noteViewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        initGraphDagger()
-        MyApplication.inject(this)
+
+//        val appComponent = DaggerAppComponent.builder().application(application).build()
+        val appComponent = (application as NoteApplication).appComponent
+        appComponent.inject(this)
+
+        Log.d(TAG, "MainActivity: ${noteViewModel.noteRepository} , $noteViewModel")
+
         initControls()
         initEvents()
-    }
-
-    //init appCompoment
-    private fun initGraphDagger() {
-        var appCompoment = DaggerAppComponent.builder().application(application).build()
-        appCompoment.inject(this)
     }
 
     private fun initEvents() {
@@ -51,16 +45,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initControls() {
         val adapter = NoteAdapter(this@MainActivity, onItemClick, onItemDelete)
+
         rv_note.setHasFixedSize(true)
         rv_note.layoutManager = LinearLayoutManager(this)
         rv_note.adapter = adapter
-        Log.e(
-            TAG,
-            "initControls:  repository: ${notViewModel.noteRepository}, view model: $notViewModel"
-        )
-        notViewModel.getAllNote().observe(this) {
+
+        noteViewModel.getAllNote().observe(this, {
             adapter.setNotes(it)
-        }
+        })
+
     }
 
     private val onItemClick: (Note) -> Unit = {
@@ -70,6 +63,6 @@ class MainActivity : AppCompatActivity() {
 
     }
     private val onItemDelete: (Note) -> Unit = {
-//        noteViewModel.deleteNote(it)
+        noteViewModel.deleteNote(it)
     }
 }

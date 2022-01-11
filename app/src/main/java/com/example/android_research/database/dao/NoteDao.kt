@@ -1,8 +1,8 @@
-package com.example.android_research.database.dao
+package com.example.noteapp.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.android_research.model.Note
+import com.example.noteapp.model.Note
 
 @Dao
 interface NoteDao {
@@ -18,8 +18,8 @@ interface NoteDao {
     @Query("select * from note_table")
     fun getAllNote(): LiveData<List<Note>>
 
-    /* @Query("select * from note_table where title_col=:title")
-     fun getNoteByTitle(title: String): LiveData<List<Note>>*/
+   /* @Query("select * from note_table where title_col=:title")
+    fun getNoteByTitle(title: String): LiveData<List<Note>>*/
 
 
 }

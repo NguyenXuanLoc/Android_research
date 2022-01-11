@@ -1,11 +1,11 @@
-package com.example.android_research.database
+package com.example.noteapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.android_research.database.dao.NoteDao
-import com.example.android_research.model.Note
+import com.example.noteapp.database.dao.NoteDao
+import com.example.noteapp.model.Note
 
 @Database(entities = [Note::class], version = 1)
 abstract class NoteDatabase : RoomDatabase() {
@@ -18,10 +18,11 @@ abstract class NoteDatabase : RoomDatabase() {
         fun getInstance(context: Context): NoteDatabase {
             if (instance == null) {
                 instance =
-                    Room.databaseBuilder(context, NoteDatabase::class.java, "NoteDatabase.db").build()
+                    Room.databaseBuilder(context, NoteDatabase::class.java, "NoteDatabase").build()
             }
             return instance!!
         }
+
     }
 
 }

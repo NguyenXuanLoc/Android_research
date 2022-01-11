@@ -1,17 +1,14 @@
-package com.example.android_research.viewmodel
+package com.example.noteapp.viewmodel
 
 import androidx.lifecycle.LiveData
-import com.example.android_research.database.repository.NoteRepository
-import com.example.android_research.model.Note
+import com.example.noteapp.database.repository.NoteRepository
+import com.example.noteapp.model.Note
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
-// khai bao cach khoi tao 1 doi tuong inject tu dagger
-@Singleton
-class NoteViewModel @Inject constructor(val noteRepository: NoteRepository) {
-
+class NoteViewModel @Inject constructor( val noteRepository: NoteRepository) {
 
     fun insertNote(note: Note) = GlobalScope.launch {
         noteRepository.insertNote(note)
@@ -26,19 +23,6 @@ class NoteViewModel @Inject constructor(val noteRepository: NoteRepository) {
     }
 
     fun getAllNote(): LiveData<List<Note>> = noteRepository.getAllNote()
-/*
-    class NoteViewModelFactory(private val application: Application) : ViewModelProvider.Factory {
-
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(NoteViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return NoteViewModel(application) as T
-            }
-
-            throw IllegalArgumentException("Unable construct viewModel")
-        }
-
-    }*/
 
 
 }

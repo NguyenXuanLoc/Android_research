@@ -1,4 +1,4 @@
-package com.example.android_research.di.annotation
+package com.example.noteapp.di
 
 import javax.inject.Scope
 

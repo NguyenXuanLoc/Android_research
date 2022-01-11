@@ -1,4 +1,4 @@
-package com.example.noteapp.adapter
+package com.example.android_research.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_research.R
-import com.example.android_research.model.Note
+import com.example.noteapp.model.Note
 
 class NoteAdapter(
     private val context: Context,

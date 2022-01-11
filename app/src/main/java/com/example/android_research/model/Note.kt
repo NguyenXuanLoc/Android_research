@@ -1,4 +1,4 @@
-package com.example.android_research.model
+package com.example.noteapp.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,7 +10,7 @@ import java.io.Serializable
 class Note(
     @ColumnInfo(name = "title_col") var title: String = "",
     @ColumnInfo(name = "description_col") var description: String = ""
-) : Serializable {
+):Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "note_id_col")
     var id: Int = 0

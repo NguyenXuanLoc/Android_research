@@ -4,26 +4,29 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.android_research.MyApplication
+import com.example.android_research.NoteApplication
 import com.example.android_research.R
-import com.example.android_research.viewmodel.LoginViewModel
-import com.example.android_research.viewmodel.NoteViewModel
+import com.example.noteapp.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
-    private var TAG = "MainActivity"
+    private val TAG = "LoginActivityTAG"
 
     @Inject
-    lateinit var viewModel: LoginViewModel
+    lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        MyApplication.inject(this)
-        var authComponent = MyApplication.component.getAuthComponentFactory().create()
+
+        val authComponent =
+            (application as NoteApplication).appComponent.getAuthComponentFactory().create()
+
         authComponent.inject(this)
-        Log.e(TAG, "onCreate: $viewModel")
+
+        Log.d(TAG, "LoginActivity $loginViewModel")
+
         btn_login.setOnClickListener {
             startActivity(
                 Intent(this, MainActivity::class.java)
@@ -31,6 +34,4 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-
-
 }
